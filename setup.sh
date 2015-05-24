@@ -12,6 +12,7 @@ S3_SHARE_DIRECTORY="/"
 
 SERVER_NAME=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 SHARE_USER1="user1"
+SHARE_USER_DOMAIN="example.com"
 SHARE_ADMIN_GROUP="admins"
 SHARE_USER_GROUP="users"
 
@@ -45,7 +46,7 @@ asconfigurator -F "set_user_data;user_name,${NODE_USER};absolute,${S3_BUCKET};au
 /opt/aspera/shares/u/shares/bin/run rake data:group:create -- --group_name ${SHARE_USER_GROUP}
 
 #Create Default Users
-/opt/aspera/shares/u/shares/bin/run rake data:user:create -- --username ${SHARE_USER1} --email ${SHARE_USER1}@globosat.com.br
+/opt/aspera/shares/u/shares/bin/run rake data:user:create -- --username ${SHARE_USER1} --email ${SHARE_USER1}@${SHARE_USER_DOMAIN}
 
 
 # Add user to Group
