@@ -21,7 +21,7 @@ SHARE_USER_GROUP="users"
 
 
 # Backup config
-mkdir ${BACKUP_DIR}
+mkdir -p ${BACKUP_DIR}
 cp /opt/aspera/etc/aspera.conf ${BACKUP_DIR}/aspera.conf.${DATE}
 
 # Set Server Name
